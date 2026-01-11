@@ -1,44 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Home</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arpan Somnath Adhikari - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="videoDemo.html">Video Demo</a></li>
+                <li><a href="sitereport.html">Site Report</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="project.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="videoDemo.html">Video</a></li>
-      <li><a href="sitereport.html">Site Report</a></li>
-    </ul>
-  </nav>
-</header>
+    <main class="main-content">
+        <section class="hero-section" id="home">
+            <img src="c:\Redmi 13 photos\IMG-c1479d12ed79a16e8cea063bde7642bc-V.jpg" alt="Arpan Somnath Adhikari" class="profile-photo">
+            <h1>Arpan Somnath Adhikari</h1>
+            <p class="bio-text">
+                Computer Science Undergraduate from Kathmandu, Bagmati<br>
+                Passionate about programming, communication & networking
+            </p>
+            <div class="contact-details">
+                <strong>📧 arpadhikari098@gmail.com</strong><br>
+                <strong>📱 977-9868087309</strong><br>
+                <a href="https://linkedin.com/in/arpan-adhikari-64149025a" target="_blank">LinkedIn</a>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-item">Python Programming</div>
+                <div class="skill-item">Communication Skills</div>
+                <div class="skill-item">Counselling</div>
+                <div class="skill-item">Leadership</div>
+                <div class="skill-item">Time Management</div>
+                <div class="skill-item">4 Languages</div>
+            </div>
+            
+            <a href="Arpan_Somnath_Adhikari_CV.docx" download class="btn-simple">Download CV</a>
+        </section>
 
-<main>
-  <section>
-    <h1>Welcome to My Portfolio</h1>
+        <section class="content-section" id="about">
+            <h2>Education & Experience</h2>
+            <p><strong>A-Level Computer Science</strong><br>Trinity International College, Kathmandu (2019-2021)</p>
+            <p><strong>Secondary School Certificate</strong><br>St. Aloysius English High School, Mumbai (2019)</p>
+            <p><strong>IELTS:</strong> 6.5 Overall (Reading 6.5, Listening 6.5, Speaking 6.0, Writing 6.0)</p>
+            <p>Interests: Football ⚽ Travelling ✈️ Designing 🎨 Photography 📸 Reading 📚</p>
+        </section>
+    </main>
 
-    <img src="images/profile.jpg" alt="Profile photo" width="250">
+    <footer>
+        <p>&copy; 2026 Arpan Somnath Adhikari | CSY1063 Web Development Portfolio</p>
+    </footer>
 
-    <p>
-      My name is Arpan. This portfolio website has been created to demonstrate
-      my understanding of HTML and CSS as part of the Web Development module.
-    </p>
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
 
-    <p>
-      The site includes multiple pages, simple layouts, and responsive design.
-    </p>
-  </section>
-</main>
-
-<footer>
-  <p>© 2026 Arpan</p>
-</footer>
-
+        // Smooth scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+        
+        document.querySelectorAll('.content-section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
