@@ -1,54 +1,183 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+:root {
+    --sun-orange: #ff6b35;
+    --sun-pink: #f7931e;
+    --sun-yellow: #ffd23f;
+    --deep-blue: #1e3a5f;
+    --light-cream: #fff8e1;
+    --shadow-soft: 0 6px 20px rgba(255, 107, 53, 0.15);
 }
 
-/* Header & Navigation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--deep-blue);
+    background: linear-gradient(45deg, var(--light-cream) 0%, #ffeaa7 50%, var(--light-cream) 100%);
+    min-height: 100vh;
+}
+
 header {
-  background-color: #222;
-  padding: 15px;
+    background: linear-gradient(135deg, var(--sun-orange), var(--sun-pink));
+    color: white;
+    padding: 1.2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s ease;
 }
 
-/* Main Content */
+nav a:focus {
+    background: rgba(255,255,255,0.4);
+    outline: none;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: var(--shadow-soft);
+    object-fit: cover;
+    margin: 1rem auto;
+    display: block;
+}
+
 main {
-  padding: 20px;
-  background-color: white;
-  margin: 20px;
-}
-
-h1 {
-  margin-bottom: 10px;
-}
-
-p {
-  line-height: 1.6;
-}
-
-/* Footer */
-footer {
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
-
-/* Simple Responsive Change */
-@media (max-width: 600px) {
-  nav ul {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
     flex-direction: column;
-  }
+    align-items: center;
+}
+
+.hero {
+    text-align: center;
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 30px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-soft);
+    clip-path: polygon(10% 0%, 100% 0, 100% 85%, 90% 100%, 0% 100%, 0% 15%);
+    max-width: 600px;
+}
+
+.grid-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.project-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    border-left: 6px solid var(--sun-yellow);
+    transition: transform 0.3s ease;
+}
+
+form {
+    background: white;
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: var(--shadow-soft);
+    width: 100%;
+    max-width: 500px;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+button {
+    background: linear-gradient(135deg, var(--sun-pink), var(--sun-orange));
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer {
+    background: var(--deep-blue);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Mobile - Diagonal layout adjusts */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+        width: 30px;
+    }
+    
+    .menu-toggle span {
+        height: 4px;
+        background: white;
+        border-radius: 2px;
+    }
+    
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--sun-orange);
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    .hero {
+        clip-path: none;
+        padding: 2rem 1rem;
+    }
+    
+    .grid-projects {
+        grid-template-columns: 1fr;
+    }
 }
