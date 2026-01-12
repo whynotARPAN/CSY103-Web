@@ -179,7 +179,7 @@ h1 {
     box-shadow: var(--shadow-deep);
 }
 
-.projects-grid {
+.project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
